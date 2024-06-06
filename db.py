@@ -32,3 +32,33 @@ def create_table():
             print('SQL connection is closed')
     else:
         print('Error by creating database connection')            
+        
+def execute_query(query, params=()):
+    connection = create_connection()
+    try:
+        c = connection.cursor()
+        c.execute(query, params)
+        connection.commit()
+        print(f'executiong query: {c}')
+        return c
+    except Error as err:
+        print(f"There is an error executing query function: {err}")
+        return None
+    finally:
+        connection.close()
+        
+def fetch_query():
+    connection = create_connection()
+    try:
+        c = connection.cursor()
+        c.execute(query, params)
+        print(f'connection fetch query{c} - fetchall:  {c.fetchall()}')
+        return c.fetchall()
+    except Error as err:
+        print(f'Error in fetching query: {err}')
+        return None
+    finally:
+        connection.close()
+        
+    
+    
