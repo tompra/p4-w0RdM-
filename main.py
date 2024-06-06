@@ -2,6 +2,7 @@
 import colorama
 from colorama import Fore, Style, Back
 import pyfiglet
+from db import create_table
 
 def print_logo():
     colorama.init()
@@ -23,6 +24,8 @@ def menu():
 def main():
     print_logo()
     welcome_text()
+    create_table()
+    
     while True:
         user_choice = menu()
         print(f'{Fore.LIGHTMAGENTA_EX} Choice from user: {user_choice}')
