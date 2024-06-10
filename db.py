@@ -39,7 +39,7 @@ def execute_query(query, params=()):
         c = connection.cursor()
         c.execute(query, params)
         connection.commit()
-        print(f'executiong query: {c}')
+        print(f'executing query: {c}')
         return c
     except Error as err:
         print(f"There is an error executing query function: {err}")
@@ -47,7 +47,7 @@ def execute_query(query, params=()):
     finally:
         connection.close()
         
-def fetch_query():
+def fetch_query(query, params=()):
     connection = create_connection()
     try:
         c = connection.cursor()
